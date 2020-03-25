@@ -9,19 +9,20 @@
     display: flex;
     padding: 0;
     li {
+      position: relative;
       padding: 0 10px;
       border-bottom: 2px solid transparent;
-      transition: border .25s;
+      transition: border .5s;
       &:hover {
         border-bottom: 2px solid rgba(255, 0, 0, .25);
       }
-      &:first-child {
+      &.active {
         border-bottom: 2px solid red;
       }
       a {
         text-decoration: none;
         color: #55f;
-        transition: color .25s;
+        transition: color .5s;
         &:hover {
           color: #00f;
         }

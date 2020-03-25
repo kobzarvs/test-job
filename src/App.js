@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { TestJob1 } from "./pages/TestJob1";
 import { TestJob2 } from "./pages/TestJob2";
 import { TestJob3 } from "./pages/TestJob3";
-import { PageNotFound } from "./pages";
+import { PageNotFound } from "./pages/PageNotFound";
 import "./styles.scss";
 
 export default function App() {
