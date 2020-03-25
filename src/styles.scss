@@ -1,6 +1,5 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
   padding: 0;
   margin: 0;
 
@@ -31,9 +30,54 @@
   }
 
   .content {
+    display: inline-block;
     padding: 10px;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 8px #ccc;
     border-radius: 5px;
+    width: auto;
   }
+}
+
+.form-field {
+  font-size: .9em;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 10px;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  .text-field {
+    font-size: 1em;
+  }
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 10px;
+}
+
+.row.form-actions {
+  justify-content: flex-end;
+}
+
+#result {
+  background: transparent;
+}
+
+.field-error {
+  color: red;
+  height: 18px;
+  font-size: .8em;
+  // width: 100%;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
 }
