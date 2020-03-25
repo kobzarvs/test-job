@@ -30,12 +30,7 @@
   }
 
   .content {
-    display: inline-block;
     padding: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 8px #ccc;
-    border-radius: 5px;
-    width: auto;
   }
 }
 
@@ -62,7 +57,7 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 0 10px;
+  width: 100%;
 }
 
 .row.form-actions {

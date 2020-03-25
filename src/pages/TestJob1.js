@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Layout } from '../layouts'
+import { FormField } from '../components/FormField'
 import { run } from '../models/testJob1'
-
-const FormField = ({ children }) => <div className="form-field">{children}</div>
 
 const ERROR_ACCEPTED_FORMAT = `Допустимый формат: ['123.456', "123.456"]`
 const ERROR_EMPTY_FIELD = 'Пустое поле!'
@@ -66,6 +65,7 @@ export const TestJob1 = props => {
         <FormField>
           <label htmlFor="source">Массив долей</label>
           <textarea
+            autoFocus
             className="text-field"
             id="source"
             rows="12"
