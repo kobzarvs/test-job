@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout } from "../layouts";
+import { run } from "../models/testJob1";
 
 const FormField = ({ children }) => (
   <div className="form-field">{children}</div>
@@ -31,14 +32,8 @@ export const TestJob1 = props => {
         return setError(ERROR_INCORRECT_VALUES);
       }
 
-      // 1. Считаем общую сумму элементов
-      const sum = list.reduce((acc, item) => acc + parseFloat(item), 0);
-      // 2. Вычисление доли в процентном выражении с точностью до трех знаков
-      const pieceList = list.map(item =>
-        ((parseFloat(item) * 100) / sum).toFixed(3)
-      );
+      const pieceList = run({ list });
 
-      // Вывод результата
       setResult(JSON.stringify(pieceList, null, 2).replace(/"/g, "'"));
     } catch (e) {
       return setError(ERROR_ACCEPTED_FORMAT);
