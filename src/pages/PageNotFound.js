@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const PageNotFound = () => {
   return (
@@ -7,5 +7,5 @@ export const PageNotFound = () => {
       <h1>Page not found</h1>
       <Link to="/">Return to back</Link>
     </div>
-  );
-};
+  )
+}
