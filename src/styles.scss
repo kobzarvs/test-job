@@ -76,3 +76,19 @@
   // overflow: hidden;
   // text-overflow: ellipsis;
 }
+
+.form-fieldset {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: calc(100vw - 60px);
+}
+
+textarea.result {
+  width: 100%;
+  background: transparent;
+}
+
+input {
+  transition: border .3s;
+}
