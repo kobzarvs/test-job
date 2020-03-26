@@ -35,6 +35,7 @@
 }
 
 .form-field {
+  position: relative;
   font-size: .9em;
   display: flex;
   flex-flow: column nowrap;
@@ -90,4 +91,36 @@ textarea.result {
   transition: border .3s;
   padding: 2px 4px !important;
   height: 18px;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.spin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .35);
+  &::after {
+    position: absolute;
+    content: 'Загрузка данных...';
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 20px #000;
+    top: 40%;
+    left: 20px;
+    animation: loadingAnimation 1.5s infinite;
+  }
 }

@@ -1,5 +1,5 @@
-const MIN_LATENCY = 200
-const MAX_LATENCY = 2000
+const MIN_LATENCY = 1000
+const MAX_LATENCY = 3000
 
 export const fakeData = Array.from(Array(1000))
   .map((_, i) => ({
@@ -34,7 +34,9 @@ http.post = async ({ url, body }) => {
   return promise
 }
 
-export const cache = {}
+export const cache = {
+  data: {},
+}
 
 export const getBondsData = async ({ date, isins }) => {
   const restIsins = []
@@ -42,7 +44,7 @@ export const getBondsData = async ({ date, isins }) => {
   let result = []
   isins.forEach(isin => {
     const key = `${date}/${isin}`
-    const cachedRow = cache[key]
+    const cachedRow = cache.data[key]
     if (cachedRow) {
       result.push(cachedRow)
     } else {
@@ -59,7 +61,7 @@ export const getBondsData = async ({ date, isins }) => {
     // Добавляем новые данные в cache
     fetchedData.forEach(row => {
       const key = `${date}/${row.isin}`
-      cache[key] = row
+      cache.data[key] = row
     })
   }
 
