@@ -85,6 +85,7 @@
 textarea.result {
   width: calc(100% - 6px);
   background: transparent;
+  transition: box-shadow 1s;
 }
 
 .input-field {
@@ -115,12 +116,13 @@ textarea.result {
   &::after {
     position: absolute;
     content: 'Загрузка данных...';
+    width: 160px;
     font-size: 1.2em;
     font-weight: bold;
     color: white;
     text-shadow: 0 0 20px #000;
     top: 40%;
-    left: 20px;
+    left: calc(50% - 80px);
     animation: loadingAnimation 1.5s infinite;
   }
 }

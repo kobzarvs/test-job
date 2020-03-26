@@ -10,11 +10,19 @@ export const TestJob2 = props => {
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
   const [updater, forceUpdate] = useState(false)
+  const [resultUpdated, setResultUpdated] = useState(false)
+  const [cacheUpdated, setCacheUpdated] = useState(false)
   const cacheLength = cache.data ? Object.keys(cache.data).length : 0
+
+  const flashField = (cmd, timeout = 1000) => {
+    cmd(true)
+    setTimeout(() => cmd(false), timeout)
+  }
 
   const clearCache = () => {
     cache.data = {}
     forceUpdate(state => !state)
+    flashField(setCacheUpdated)
   }
 
   const query = async () => {
@@ -31,12 +39,21 @@ export const TestJob2 = props => {
     if (Object.keys(errors).length > 0) {
       setErrors(errors)
       setTimeout(() => setErrors({}), 3000)
+    } else {
+      setLoading(true)
+      const result = await getBondsData({ date, isins })
+      setLoading(false)
+      setResult(result)
     }
-    setLoading(true)
-    const result = await getBondsData({ date, isins })
-    setLoading(false)
-    setResult(result)
   }
+
+  useEffect(() => {
+    flashField(setResultUpdated)
+  }, [result])
+
+  useEffect(() => {
+    flashField(setCacheUpdated)
+  }, [cacheLength])
 
   return (
     <Layout {...props}>
@@ -74,6 +91,7 @@ export const TestJob2 = props => {
           <div style={{ width: '100%', position: 'relative' }}>
             <textarea
               className="text-field result"
+              style={{ boxShadow: resultUpdated ? '0 0 10px green' : 'none' }}
               id="result"
               rows="12"
               value={JSON.stringify(result, null, 2)}
@@ -86,6 +104,7 @@ export const TestJob2 = props => {
           <label htmlFor="cache">Cache ({cacheLength})</label>
           <textarea
             className="text-field result"
+            style={{ boxShadow: cacheLength && cacheUpdated ? '0 0 10px green' : 'none' }}
             id="cache"
             rows="12"
             value={JSON.stringify(cache.data, null, 2)}
