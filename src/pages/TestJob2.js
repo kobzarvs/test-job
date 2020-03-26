@@ -34,6 +34,7 @@ export const TestJob2 = props => {
         <FormField style={{ flex: '0 1 100px' }}>
           <label htmlFor="date">Дата</label>
           <input
+            className="input-field"
             autoFocus
             id="date"
             type="date"
@@ -45,6 +46,7 @@ export const TestJob2 = props => {
           <label htmlFor="isins">Список ISIN</label>
           <div className="row">
             <input
+              className="input-field"
               id="isins"
               type="text"
               ref={isinsRef}
@@ -56,7 +58,7 @@ export const TestJob2 = props => {
           </div>
         </FormField>
       </div>
-      <div className="row" style={{ marginTop: 10, justifyContent: 'stretch' }}>
+      <div className="row" style={{ marginTop: 20 }}>
         <FormField style={{ flex: '1 0' }}>
           <label htmlFor="result">Результат запроса</label>
           <textarea
