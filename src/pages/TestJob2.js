@@ -6,7 +6,7 @@ import { fakeData, cache, getBondsData } from '../models/testJob2'
 export const TestJob2 = props => {
   const dateRef = useRef()
   const isinsRef = useRef()
-  const [result, setResult] = useState([])
+  const [result, setResult] = useState()
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
   const [updater, forceUpdate] = useState(false)
@@ -48,7 +48,7 @@ export const TestJob2 = props => {
   }
 
   useEffect(() => {
-    flashField(setResultUpdated)
+    result && flashField(setResultUpdated)
   }, [result])
 
   useEffect(() => {
@@ -74,6 +74,7 @@ export const TestJob2 = props => {
           <div className="row">
             <input
               className="input-field"
+              placeholder="XS0971721963 000000000012 000000000015"
               id="isins"
               type="text"
               ref={isinsRef}
