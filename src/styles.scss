@@ -79,7 +79,7 @@
   background: #eee;
   border: 1px solid #ccc;
   padding: 10px;
-  width: calc(100% - 20px);
+  width: 100%;
 }
 
 textarea.result {
@@ -88,10 +88,9 @@ textarea.result {
   transition: box-shadow 1s;
 }
 
-.input-field {
+input.input-field {
   transition: border .3s;
-  padding: 2px 4px !important;
-  height: 18px;
+  height: 22px !important;
 }
 
 @keyframes loadingAnimation {
@@ -111,7 +110,7 @@ textarea.result {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 5px;
   background: rgba(0, 0, 0, .35);
   &::after {
     position: absolute;
@@ -121,8 +120,8 @@ textarea.result {
     font-weight: bold;
     color: white;
     text-shadow: 0 0 20px #000;
-    top: 40%;
-    left: calc(50% - 80px);
+    top: 45%;
+    left: calc(50% - 70px);
     animation: loadingAnimation 1.5s infinite;
   }
 }
