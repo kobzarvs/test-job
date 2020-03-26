@@ -19,6 +19,7 @@ export const TestJob2 = props => {
 
     let date = dateRef.current.value
     if (!date.trim()) errors.date = true
+    date = date.replace(/-/g, '')
     if (Object.keys(errors).length > 0) {
       setErrors(errors)
       setTimeout(() => setErrors({}), 3000)
@@ -35,9 +36,9 @@ export const TestJob2 = props => {
           <input
             autoFocus
             id="date"
-            type="text"
+            type="date"
             ref={dateRef}
-            style={{ width: 100, border: `1px solid ${errors.date ? 'red' : '#ccc'}`, padding: 2 }}
+            style={{ width: 150, border: `1px solid ${errors.date ? 'red' : '#ccc'}`, padding: 2 }}
           />
         </FormField>
         <FormField style={{ flex: '1 0 50%' }}>
