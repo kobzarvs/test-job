@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Layout } from '../layouts'
 import { FormField } from '../components/FormField'
 import { fakeData, cache, getBondsData } from '../models/testJob2'
@@ -10,7 +10,7 @@ export const TestJob2 = props => {
   const [form] = Form.useForm()
   const [result, setResult] = useState()
   const [loading, setLoading] = useState(false)
-  const [, forceUpdate] = useState(false)
+  const [, forceUpdate] = useState()
   const [resultUpdated, setResultUpdated] = useState(false)
   const [cacheUpdated, setCacheUpdated] = useState(false)
   const cacheLength = cache.data ? Object.keys(cache.data).length : 0
@@ -22,15 +22,12 @@ export const TestJob2 = props => {
 
   const clearCache = () => {
     cache.data = {}
-    forceUpdate(state => !state)
+    forceUpdate()
     flashField(setCacheUpdated)
   }
 
   const query = async ({ date, isins }) => {
     if (!date || !isins) return
-    console.log('query', date, isins)
-    // if (!isins.trim()) errors.isins = true
-    // if (isins.length === 0) errors.isins = true
 
     setLoading(true)
     const result = await getBondsData({
