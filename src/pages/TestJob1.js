@@ -21,7 +21,7 @@ export const TestJob1 = props => {
 
   const calc = value => {
     try {
-      const list = JSON.parse(value.replace(/'/g, '"'))
+      const list = JSON.parse(value.replace(/'/g, '"').replace(/,\s*]\s*$/, '\n]'))
       if (!Array.isArray(list)) return setError(ERROR_ACCEPTED_FORMAT)
       if (list.length === 0) return setError(ERROR_EMPTY_ARRAY)
       if (list.some(item => typeof item !== 'string' || !item.trim())) {
@@ -29,6 +29,7 @@ export const TestJob1 = props => {
       }
 
       const pieceList = piecesToPercents({ list })
+      if (!pieceList) return setError(ERROR_ACCEPTED_FORMAT)
 
       setResult(JSON.stringify(pieceList, null, 2).replace(/"/g, "'"))
     } catch (e) {
