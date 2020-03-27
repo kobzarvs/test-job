@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Layout } from '../layouts'
 import { FormField } from '../components/FormField'
-import { run } from '../models/testJob1'
+import { piecesToPercents } from '../models/testJob1'
 
 const ERROR_ACCEPTED_FORMAT = `Допустимый формат: ['123.456', "123.456"]`
 const ERROR_EMPTY_FIELD = 'Пустое поле!'
@@ -28,7 +28,7 @@ export const TestJob1 = props => {
         return setError(ERROR_INCORRECT_VALUES)
       }
 
-      const pieceList = run({ list })
+      const pieceList = piecesToPercents({ list })
 
       setResult(JSON.stringify(pieceList, null, 2).replace(/"/g, "'"))
     } catch (e) {

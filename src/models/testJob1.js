@@ -1,4 +1,4 @@
-export const run = ({ list }) => {
+export const piecesToPercents = ({ list }) => {
   // 1. Считаем общую сумму элементов
   const sum = list.reduce((acc, item) => acc + parseFloat(item), 0)
   // 2. Вычисление доли в процентном выражении с точностью до трех знаков
