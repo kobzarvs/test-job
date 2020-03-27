@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Layout } from '../layouts'
 import { FormField } from '../components/FormField'
-import { piecesToPercents } from '../models/testJob1'
+import { piecesToPercents } from '../modules/testJob1'
 
 const ERROR_ACCEPTED_FORMAT = `Допустимый формат: ['123.456', "123.456"]`
 const ERROR_EMPTY_FIELD = 'Пустое поле!'

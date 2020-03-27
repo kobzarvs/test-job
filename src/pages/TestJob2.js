@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Layout } from '../layouts'
 import { FormField } from '../components/FormField'
-import { fakeData, cache, getBondsData } from '../models/testJob2'
+import { fakeData, cache, getBondsData } from '../modules/testJob2'
 import { Form, Button, Input, DatePicker } from 'antd'
 import { ClearOutlined } from '@ant-design/icons'
 import locale from 'antd/lib/locale/ru_RU'
